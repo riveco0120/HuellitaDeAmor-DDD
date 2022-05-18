@@ -6,7 +6,9 @@ import co.com.sofka.domain.generic.AggregateEvent;
 
 public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
 
-    Horrario horrario;
+    protected Horrario horrario;
+    protected Veterinario veterinario;
+    protected AuxiliarVeterinario auxiliarVeterinario;
 
     public PersonalMedico(PersonalMedicoID entityId, Horrario horrario) {
         super(entityId);

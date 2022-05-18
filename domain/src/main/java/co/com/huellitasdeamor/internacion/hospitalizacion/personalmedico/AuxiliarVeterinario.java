@@ -1,4 +1,24 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
-public class AuxiliarVeterinario {
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.AuxiliarVeterinarioID;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Funcion;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Nombre;
+import co.com.sofka.domain.generic.Entity;
+
+public class AuxiliarVeterinario extends Entity<AuxiliarVeterinarioID> {
+    private final Nombre nombre;
+    private final Funcion funcion;
+    public AuxiliarVeterinario(AuxiliarVeterinarioID entityId, Nombre nombre, Funcion funcion) {
+        super(entityId);
+        this.nombre = nombre;
+        this.funcion = funcion;
+    }
+
+    public Nombre nombre() {
+        return nombre;
+    }
+
+    public Funcion funcion() {
+        return funcion;
+    }
 }

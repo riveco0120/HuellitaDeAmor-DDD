@@ -7,10 +7,10 @@ public class PersonalMedicoCreado extends DomainEvent {
 
     private final Horrario horrario;
 
-    public PersonalMedicoCreado(Horrario horrario, Horrario horrario1){
+    public PersonalMedicoCreado(Horrario horrario){
         super("hullitadeamor.personalmedico.personalmedicocreado");
 
-        this.horrario = horrario1;
+        this.horrario = horrario;
     }
 
     public Horrario getHorrario() {

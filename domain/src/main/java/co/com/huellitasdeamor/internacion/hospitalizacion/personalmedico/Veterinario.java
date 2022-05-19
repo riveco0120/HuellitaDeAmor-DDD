@@ -1,7 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Especialidad;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Funcion;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.VeterinarioID;
 import co.com.sofka.domain.generic.Entity;
@@ -19,12 +18,12 @@ public class Veterinario extends Entity<VeterinarioID> {
 
     //Comportamiento para actualizar una especialidad
 
-    public void actualizarFuncion(Especialidad especialidad){
+    public void actualizarEspecialidad(Especialidad especialidad){
         this.especialidad= Objects.requireNonNull(especialidad);
     }
 
     //Comportamiento para actualizar nombre del veterinario
-    public void actualizarNombreAuxiliar(Nombre nombre){
+    public void actualizarNombreVeterinario(Nombre nombre){
         this.nombre = Objects.requireNonNull(nombre);
     }
 

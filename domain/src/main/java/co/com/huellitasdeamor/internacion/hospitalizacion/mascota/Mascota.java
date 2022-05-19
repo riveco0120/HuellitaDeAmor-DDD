@@ -4,7 +4,6 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 
-import java.io.ObjectStreamException;
 import java.util.Objects;
 
 public class Mascota extends AggregateEvent<MascotaID> {
@@ -19,6 +18,12 @@ public class Mascota extends AggregateEvent<MascotaID> {
         Objects.requireNonNull(nombreMascota);
         Objects.requireNonNull(especie);
         appendChange(new MascotaCreada(nombreMascota,especie)).apply();
+    }
+
+    //Lanzar o afectar los estados
+    private Mascota(MascotaID mascotaID){
+        super(mascotaID);
+        subscribe(new MascotaChange(this));
     }
 
     //Agrega dueño mascota

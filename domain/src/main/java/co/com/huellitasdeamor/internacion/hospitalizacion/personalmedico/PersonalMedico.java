@@ -5,6 +5,7 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueob
 import co.com.sofka.domain.generic.AggregateEvent;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
@@ -60,8 +61,21 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
         appendChange(new AuxiliarVEterinarioEliminado(entityId)).apply();
     }
 
+    //Encontrar el auxiliar por id
+    public Optional<AuxiliarVeterinario> obtenerAuxiliar(AuxiliarVeterinarioID auxiliarVeterinarioID){
+        return auxiliarVeterinarios().stream().filter(auxiliar->auxiliar.identity().equals(auxiliarVeterinarioID)).findFirst();
+    }
 
 
+    public Horrario horrario() {
+        return horrario;
+    }
 
+    public Veterinario veterinario() {
+        return veterinario;
+    }
 
+    public Set<AuxiliarVeterinario> auxiliarVeterinarios() {
+        return auxiliarVeterinarios;
+    }
 }

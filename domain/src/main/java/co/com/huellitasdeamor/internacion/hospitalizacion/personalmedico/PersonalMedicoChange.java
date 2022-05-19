@@ -15,11 +15,7 @@ public class PersonalMedicoChange extends EventChange {
 
         //Agregando auxiliar veterinario
         apply((AuxiliarAgregado event)->{
-            var numFunciones =personalMedico.auxiliarVeterinarios().size();
-            if(numFunciones==4){
-                throw new IllegalArgumentException("No puede haber mas de 4 auxiliares por equipo de trabajo");
-            }
-            personalMedico.auxiliarVeterinarios.add(
+                  personalMedico.auxiliarVeterinarios.add(
                     new AuxiliarVeterinario(
                             event.getEntityId(),
                             event.getNombre(),

@@ -24,7 +24,7 @@ public class AuxiliarVeterinario extends Entity<AuxiliarVeterinarioID> {
         this.funcion= Objects.requireNonNull(funcion);
     }
 
-    //Comportamiento para actualizar nombre de auxiliar
+    //Comportamiento para actualizar nombre del auxiliar veterinario
     public void actualizarNombreAuxiliar(Nombre nombre){
         this.nombre = Objects.requireNonNull(nombre);
     }

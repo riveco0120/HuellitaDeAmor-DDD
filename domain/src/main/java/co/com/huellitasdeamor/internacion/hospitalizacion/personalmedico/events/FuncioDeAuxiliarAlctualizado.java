@@ -5,12 +5,13 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueob
 import co.com.sofka.domain.generic.DomainEvent;
 
 
-public class FuncionDeAuxiliarAlctualizado  extends DomainEvent {
+public class FuncioDeAuxiliarAlctualizado extends DomainEvent {
 
     private final AuxiliarVeterinarioID auxiliarVeterinarioID;
     private final Funcion funcion;
 
-    public FuncionDeAuxiliarAlctualizado(AuxiliarVeterinarioID auxiliarVeterinarioID, Funcion funcion) {
+
+    public FuncioDeAuxiliarAlctualizado(AuxiliarVeterinarioID auxiliarVeterinarioID, Funcion funcion) {
         super("huellitadeamor.personalmedico.funcionauxiliaracualizada");
         this.auxiliarVeterinarioID = auxiliarVeterinarioID;
         this.funcion = funcion;

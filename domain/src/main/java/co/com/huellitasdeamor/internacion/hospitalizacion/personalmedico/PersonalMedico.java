@@ -16,8 +16,16 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
 
     public PersonalMedico(PersonalMedicoID entityId, Horrario horrario) {
         super(entityId);
+        Objects.requireNonNull(horrario);
         appendChange(new PersonalMedicoCreado(horrario)).apply();
     }
+
+    //Lanzar o afectar los estados
+    private PersonalMedico(PersonalMedicoID personalMedicoID){
+        super(personalMedicoID);
+        subscribe(new PersonalMedicoChange(this));
+    }
+
 
     //Agregar Auxiliar veterinario
     public void agregarAuxiliar(AuxiliarVeterinarioID entityId, Nombre nombre, Funcion funcion){
@@ -51,9 +59,16 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
     }
 
     //Actualizar funcion de auxiliar veterinario
-    public void actualizarFuncioDeUnAuxiliar(AuxiliarVeterinarioID entityId,Funcion funcion){
-        appendChange(new FuncionDeAuxiliarAlctualizado(entityId,funcion)).apply();
+    public void actualizarFuncionUnAuxiliar(AuxiliarVeterinarioID entityId,Funcion funcion){
+        appendChange(new FuncioDeAuxiliarAlctualizado(entityId,funcion)).apply();
     }
+
+    //Actualizar funcion de auxiliar veterinario
+    public void actualizarNombreUnAuxiliar(AuxiliarVeterinarioID entityId,Nombre nombre){
+        appendChange(new NombreDeAuxiliarAlctualizado(entityId,nombre)).apply();
+    }
+
+
 
     //Eliminar Auxiliar
     public void eliminarAuxiliarVeterinario(AuxiliarVeterinarioID entityId){

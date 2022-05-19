@@ -3,7 +3,9 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Mascota extends AggregateEvent<MascotaID> {
@@ -24,6 +26,13 @@ public class Mascota extends AggregateEvent<MascotaID> {
     private Mascota(MascotaID mascotaID){
         super(mascotaID);
         subscribe(new MascotaChange(this));
+    }
+
+    //factoria
+    public static Mascota from(MascotaID mascotaID, List<DomainEvent>events){
+        var mascota = new Mascota(mascotaID);
+        events.forEach(mascota::applyEvent);
+        return mascota;
     }
 
     //Agrega dueño mascota

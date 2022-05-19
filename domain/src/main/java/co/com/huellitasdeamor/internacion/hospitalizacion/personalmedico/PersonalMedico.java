@@ -3,7 +3,9 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -26,6 +28,11 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
         subscribe(new PersonalMedicoChange(this));
     }
 
+    public static PersonalMedico from(PersonalMedicoID personalMedicoID, List<DomainEvent> events){
+        var personalmedico = new PersonalMedico(personalMedicoID);
+        events.forEach(personalmedico::applyEvent);
+        return personalmedico;
+    }
 
     //Agregar Auxiliar veterinario
     public void agregarAuxiliar(AuxiliarVeterinarioID entityId, Nombre nombre, Funcion funcion){
@@ -77,7 +84,7 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
     }
 
     //Encontrar el auxiliar por id
-    public Optional<AuxiliarVeterinario> obtenerAuxiliar(AuxiliarVeterinarioID auxiliarVeterinarioID){
+  protected Optional<AuxiliarVeterinario> obtenerAuxiliar(AuxiliarVeterinarioID auxiliarVeterinarioID){
         return auxiliarVeterinarios().stream().filter(auxiliar->auxiliar.identity().equals(auxiliarVeterinarioID)).findFirst();
     }
 

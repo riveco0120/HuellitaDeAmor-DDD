@@ -1,4 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion;
 
-public class Prueba {
+import co.com.sofka.domain.generic.Command;
+
+public class Prueba extends Command {
 }

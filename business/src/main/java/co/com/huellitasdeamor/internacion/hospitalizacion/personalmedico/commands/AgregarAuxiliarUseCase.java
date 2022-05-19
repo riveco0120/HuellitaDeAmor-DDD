@@ -1,5 +1,6 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
+package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands;
 
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.PersonalMedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands.AgregarAuxiliar;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;

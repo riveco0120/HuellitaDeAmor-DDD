@@ -1,6 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.PersonalMedicoCreado;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 

@@ -5,15 +5,29 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueob
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Nombre;
 import co.com.sofka.domain.generic.Entity;
 
+import java.util.Objects;
+
 public class AuxiliarVeterinario extends Entity<AuxiliarVeterinarioID> {
-    private final Nombre nombre;
-    private final Funcion funcion;
+
+    private  Nombre nombre;
+    private  Funcion funcion;
+
     public AuxiliarVeterinario(AuxiliarVeterinarioID entityId, Nombre nombre, Funcion funcion) {
         super(entityId);
         this.nombre = nombre;
         this.funcion = funcion;
     }
 
+    //Comportamiento para actualizar una funcion
+
+    public void actualizarFuncion(Funcion funcion){
+        this.funcion= Objects.requireNonNull(funcion);
+    }
+
+    //Comportamiento para actualizar nombre de auxiliar
+    public void actualizarNombreAuxiliar(Nombre nombre){
+        this.nombre = Objects.requireNonNull(nombre);
+    }
     public Nombre nombre() {
         return nombre;
     }

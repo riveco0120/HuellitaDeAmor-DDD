@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DueñoMascotaAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
@@ -35,7 +36,7 @@ class AgregarDueñoUseCaseTest {
         //Arrange
         MascotaID mascotaID = MascotaID.of("xxxx");
         DueñoID dueñoID = DueñoID.of("10101");
-        NombreDueño nombreDueño = new NombreDueño("Alejandro");
+        Nombre nombreDueño = new Nombre("Alejandro");
         Direccion direccion = new Direccion("planeta rica");
         Telefono telefono = new Telefono("3116547898");
         var command = new AgregarDueño(mascotaID,dueñoID,nombreDueño,direccion,telefono);

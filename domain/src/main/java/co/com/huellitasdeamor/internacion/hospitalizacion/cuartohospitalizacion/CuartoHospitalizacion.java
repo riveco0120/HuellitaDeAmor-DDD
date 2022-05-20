@@ -42,7 +42,6 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
         subscribe(new CuartoHospitalizacionChange(this));
     }
 
-    //factoria
     public static CuartoHospitalizacion from(CuartoHospitalizacionID cuartoHospitalizacionID, List<DomainEvent> events){
         var cuartoHospitalizacion = new CuartoHospitalizacion(cuartoHospitalizacionID);
         events.forEach(cuartoHospitalizacion::applyEvent);

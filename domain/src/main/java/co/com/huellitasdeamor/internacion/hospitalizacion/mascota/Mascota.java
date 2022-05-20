@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.generico.ValoracionMascota;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
@@ -43,7 +44,7 @@ public class Mascota extends AggregateEvent<MascotaID> {
     }
 
     //Agrega dueño mascota
-    public void agregarDueño(DueñoID dueñoID, NombreDueño nombreDueño,Direccion direccion, Telefono telefono){
+    public void agregarDueño(DueñoID dueñoID, Nombre nombreDueño, Direccion direccion, Telefono telefono){
         Objects.requireNonNull(dueñoID);
         Objects.requireNonNull(nombreDueño);
         Objects.requireNonNull(direccion);
@@ -73,7 +74,7 @@ public class Mascota extends AggregateEvent<MascotaID> {
     }
 
     //Actualizar nombre del dueño
-    public void actualizarNombreDueño(NombreDueño nombreDueño){
+    public void actualizarNombreDueño(Nombre nombreDueño){
         Objects.requireNonNull(nombreDueño);
         appendChange(new NombreDueñoActualizado(nombreDueño)).apply();
     }

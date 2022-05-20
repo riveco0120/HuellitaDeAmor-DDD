@@ -1,7 +1,5 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreDueño;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.ResultadoExamene;
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;

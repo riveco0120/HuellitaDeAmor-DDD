@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DueñoMascotaAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.NombreDueñoActualizado;
@@ -33,7 +34,7 @@ class ActualizarNombreDueñoUseCaseTest {
     void actualizarNombreDueñoTest(){
         //Arrange
         MascotaID mascotaID = MascotaID.of("xxxx");
-        NombreDueño nombreDueño =new NombreDueño("Maximiliano");
+        Nombre nombreDueño =new Nombre("Maximiliano");
         var command = new ActualizarNombreDueño(mascotaID,nombreDueño);
         Mockito.when(repository.getEventsBy("xxxx")).thenReturn(history());
         useCase.addRepository(repository);
@@ -57,7 +58,7 @@ class ActualizarNombreDueñoUseCaseTest {
         Especie especie = new Especie("Gato domestico");
         var event = new MascotaCreada(nombreMascota,especie);
         event.setAggregateRootId("xxxx");
-        var eventDueño = new DueñoMascotaAgregado(DueñoID.of("dddd"),new NombreDueño("Sindy"),new Direccion("Alto prado"),new Telefono("3002451578"));
+        var eventDueño = new DueñoMascotaAgregado(DueñoID.of("dddd"),new Nombre("Sindy"),new Direccion("Alto prado"),new Telefono("3002451578"));
         return List.of(event,eventDueño);
     }
 

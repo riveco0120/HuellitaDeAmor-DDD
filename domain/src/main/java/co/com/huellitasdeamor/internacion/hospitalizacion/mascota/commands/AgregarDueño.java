@@ -1,16 +1,17 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarDueño extends Command {
     private final MascotaID mascotaID;
     private final DueñoID dueñoID;
-    private final NombreDueño nombreDueño;
+    private final Nombre nombreDueño;
     private final Direccion direccion;
     private final Telefono telefono;
 
-    public AgregarDueño(MascotaID mascotaID, DueñoID dueñoID, NombreDueño nombreDueño, Direccion direccion, Telefono telefono) {
+    public AgregarDueño(MascotaID mascotaID, DueñoID dueñoID, Nombre nombreDueño, Direccion direccion, Telefono telefono) {
         this.mascotaID = mascotaID;
         this.dueñoID = dueñoID;
         this.nombreDueño = nombreDueño;
@@ -26,7 +27,7 @@ public class AgregarDueño extends Command {
         return dueñoID;
     }
 
-    public NombreDueño getNombreDueño() {
+    public Nombre getNombreDueño() {
         return nombreDueño;
     }
 

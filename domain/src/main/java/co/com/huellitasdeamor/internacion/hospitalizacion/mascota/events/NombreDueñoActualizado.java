@@ -1,18 +1,18 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreDueño;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class NombreDueñoActualizado extends DomainEvent {
 
-    private final NombreDueño nombreDueño;
+    private final Nombre nombreDueño;
 
-    public NombreDueñoActualizado(NombreDueño nombreDueño) {
+    public NombreDueñoActualizado(Nombre nombreDueño) {
         super("");
         this.nombreDueño = nombreDueño;
     }
 
-    public NombreDueño getNombreDueño() {
+    public Nombre getNombreDueño() {
         return nombreDueño;
     }
 }

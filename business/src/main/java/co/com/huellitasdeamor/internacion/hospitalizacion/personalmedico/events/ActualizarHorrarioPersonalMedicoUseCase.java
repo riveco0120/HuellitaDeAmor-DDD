@@ -2,7 +2,6 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.TurnoPersonalMedicoFinalizado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.PersonalMedico;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;

@@ -7,6 +7,7 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.
 import co.com.sofka.domain.generic.Command;
 
 public class AgregarMedicamento extends Command {
+
     private final CuartoHospitalizacionID cuartoHospitalizacionID;
     private final MedicamentoID medicamentoID;
     private final NombreMedicamento nombreMedicamento;
@@ -17,5 +18,21 @@ public class AgregarMedicamento extends Command {
         this.medicamentoID = medicamentoID;
         this.nombreMedicamento = nombreMedicamento;
         this.registroInvima = registroInvima;
+    }
+
+    public CuartoHospitalizacionID getCuartoHospitalizacionID() {
+        return cuartoHospitalizacionID;
+    }
+
+    public MedicamentoID getMedicamentoID() {
+        return medicamentoID;
+    }
+
+    public NombreMedicamento getNombreMedicamento() {
+        return nombreMedicamento;
+    }
+
+    public RegistroInvima getRegistroInvima() {
+        return registroInvima;
     }
 }

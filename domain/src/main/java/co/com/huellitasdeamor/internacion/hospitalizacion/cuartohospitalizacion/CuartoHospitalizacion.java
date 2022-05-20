@@ -68,59 +68,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
 
     }
 
-    //Eliminar medicamento
-    public void eliminarMedicamento(MedicamentoID medicamentoID){
-        Objects.requireNonNull(medicamentoID);
-        appendChange(new MedicamentoEliminado(medicamentoID)).apply();
-    }
-
-    //Eliminar equipo medico
-    public void eliminarEquipoMedico(EquipoMedicoID equipoMedicoID){
-        Objects.requireNonNull(equipoMedicoID);
-        appendChange(new EquipoMedicoEliminado(equipoMedicoID)).apply();
-    }
-
-    //Actualizar NombreMedicamento
-    public void actualizarNombreMedicamento(MedicamentoID medicamentoID, Nombre nombreMedicamento){
-        Objects.requireNonNull(medicamentoID);
-        Objects.requireNonNull(nombreMedicamento);
-        appendChange(new NombreMedicamentoActualizado(medicamentoID,nombreMedicamento)).apply();
-    }
-
-    //Actualizar Registro invima medicamento
-    public void actualizarRegistroInvima(MedicamentoID medicamentoID, RegistroInvima registroInvima){
-        Objects.requireNonNull(medicamentoID);
-        Objects.requireNonNull(registroInvima);
-        appendChange(new RegistroInvimaActualizado(medicamentoID,registroInvima)).apply();
-    }
-
-    //Actualizando Instrucciones equipo medico
-    public void actualizarIntrucionesEquipoMedico(EquipoMedicoID equipoMedicoID,Instrucion instrucion){
-        Objects.requireNonNull(equipoMedicoID);
-        Objects.requireNonNull(instrucion);
-        appendChange(new InstrucionesEquipoActualizada(equipoMedicoID,instrucion)).apply();
-    }
-
-    //Actualizando Tipo de equipo medico
-    public void actualizarTipoEquipoMedico(EquipoMedicoID equipoMedicoID,TipoDeEquipo tipoDeEquipo){
-        Objects.requireNonNull(equipoMedicoID);
-        Objects.requireNonNull(tipoDeEquipo);
-        appendChange(new TipoDeEquipoActualizado(equipoMedicoID,tipoDeEquipo)).apply();
-    }
-
-    //Finalizar estadia mascota
-    public void finalizarEstadiaMascota(ValoracionMascota valoracionMascota){
-        Objects.requireNonNull(valoracionMascota);
-        appendChange(new EstadiaMascotaFinalizada(valoracionMascota,mascotaid)).apply();
-    }
-
-    //Finalizar turno del persona
-    public void finalizarTurnoPersonal(HorrarioPersonaMedico horrarioPersonaMedico){
-        Objects.requireNonNull(horrarioPersonaMedico);
-        appendChange(new TurnoPersonalMedicoFinalizado(horrarioPersonaMedico,personalMedicoID)).apply();
-    }
-
-    //Obtener por id quipo medico
+       //Obtener por id quipo medico
     protected Optional<EquipoMedico> obtenerEquipoPorid(EquipoMedicoID equipoMedicoID){
         return equipoMedicos().stream().filter(equipo->equipo.identity().equals(equipoMedicoID)).findFirst();
     }

@@ -26,23 +26,9 @@ public class Dueño extends Entity<DueñoID> {
         this.nombreDueño = Objects.requireNonNull(nombreDueño);
     }
     //Comportamiento para actualizar Direccion
-    public void actualizarDireccion(Direccion direccion){
-        this.direccion=Objects.requireNonNull(direccion);
-    }
-    //Comportamiento para actualizar Telefono
-    public void actualizarTelefono(Telefono telefono){
-        this.telefono = Objects.requireNonNull(telefono);
-    }
 
     public Nombre getNombreDueño() {
         return nombreDueño;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public Telefono getTelefono() {
-        return telefono;
-    }
 }

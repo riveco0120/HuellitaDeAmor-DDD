@@ -31,27 +31,12 @@ public class MascotaChange extends EventChange {
                     event.getDescripcionOrden()
             );
         });
-
-        //Para actualizar nombre de la mascota
-        apply((NombreMascotaActualizado event)->{
-            mascota.nombreMascota = event.getNombreMascota();
-        });
-
-        //Actualizar especie mascota
-        apply((EspecieActualizada event)->{
-            mascota.especie=event.getEspecie();
-        });
-        //Actualizar nombre del dueño
+               //Actualizar nombre del dueño
         apply((NombreDueñoActualizado event)->{
            var dueño =mascota.dueño;
            dueño.actualizarNombreDueño(event.getNombreDueño());
         });
 
-        //Actualizar Resultados examenes
-        apply((ResultadoExameneActualizado event)->{
-            var examen = mascota.ordenMedica;
-            examen.actualizarResultadoExamenes(event.getResultadoExamene());
-        });
 
         //Actualizar Descripcion de los examenes
         apply((DescripcionOrdenActualizada event)->{

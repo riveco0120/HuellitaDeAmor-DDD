@@ -52,39 +52,14 @@ public class Mascota extends AggregateEvent<MascotaID> {
         appendChange(new DueñoMascotaAgregado(dueñoID,nombreDueño,direccion,telefono)).apply();
     }
 
-    //Agregar orden medica
-    public void agregarOrdenMedica(OrdenMedicaID ordenMedicaID,FechaOrdenMedica fechaOrdenMedica,ResultadoExamene resultadoExamene, DescripcionOrden descripcionOrden){
-        Objects.requireNonNull(ordenMedicaID);
-        Objects.requireNonNull(fechaOrdenMedica);
-        Objects.requireNonNull(resultadoExamene);
-        Objects.requireNonNull(descripcionOrden);
-        appendChange(new OrdenMedicaAgregada(ordenMedicaID,fechaOrdenMedica,resultadoExamene,descripcionOrden)).apply();
-    }
 
-    //Actualizar nombre mascota
-     public void actualizarNombreMascota(Nombre nombreMascota){
-        Objects.requireNonNull(nombreMascota);
-        appendChange(new NombreMascotaActualizado(nombreMascota)).apply();
-     }
-
-     //Actualizar especie de la mascota
-    public void actualizarEspecie(Especie especie){
-        Objects.requireNonNull(especie);
-        appendChange(new EspecieActualizada(especie)).apply();
-    }
-
-    //Actualizar nombre del dueño
+            //Actualizar nombre del dueño
     public void actualizarNombreDueño(Nombre nombreDueño){
         Objects.requireNonNull(nombreDueño);
         appendChange(new NombreDueñoActualizado(nombreDueño)).apply();
     }
 
-    //Actualizar Resultado de la orden
-    public void actualizarResultadoOrden(ResultadoExamene resultadoExamene){
-        Objects.requireNonNull(resultadoExamene);
-        appendChange(new ResultadoExameneActualizado(resultadoExamene)).apply();
-    }
-    //Actualiar Descripcion de la orden
+       //Actualiar Descripcion de la orden
 
     public void actualizarDescripcionOrden(DescripcionOrden descripcionOrden){
         Objects.requireNonNull(descripcionOrden);

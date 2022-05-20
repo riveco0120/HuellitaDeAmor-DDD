@@ -28,22 +28,7 @@ public class PersonalMedicoChange extends EventChange {
             );
         });
 
-        //Actualizar funcion Auxiliar Veterinario
-        apply((FuncioDeAuxiliarAlctualizado event) -> {
-            var auxiliar = personalMedico.obtenerAuxiliar(event.getAuxiliarVeterinarioID()).orElseThrow(() ->
-                    new IllegalArgumentException("No se encontro un auxiliar con esa identificacion")
-            );
-            auxiliar.actualizarFuncion(event.getFuncion());
-        });
-
-        //Actualizar nombre auxiliar
-        apply((NombreDeAuxiliarAlctualizado event) -> {
-            var auxiliar = personalMedico.obtenerAuxiliar(event.getEntityId()).orElseThrow(() ->
-                    new IllegalArgumentException("No se encontro un auxiliar con esa identificacion"));
-            auxiliar.actualizarNombreAuxiliar(event.getNombre());
-        });
-
-        //Agregar veterinario
+               //Agregar veterinario
         apply((VeterinarioAgregado event) -> {
             personalMedico.veterinario = new Veterinario(
                     event.getEntityId(),
@@ -52,11 +37,6 @@ public class PersonalMedicoChange extends EventChange {
             );
         });
 
-        //Actualizar nombre veterinario
-        apply((NombreVeterinarioActualizado event) -> {
-            var veterinary = personalMedico.veterinario;
-            veterinary.actualizarNombreVeterinario(event.getNombre());
-        });
 
         //Actualizar especialidad veterinario
         apply((EspecialidadVeterinarioActualizada event) -> {

@@ -37,26 +37,7 @@ public class CuartoHospitalizacionChange extends EventChange {
             );
         });
 
-        //eliminado equipo medico
-        apply((EquipoMedicoEliminado event) -> {
-            var equipoMedico = cuartoHospitalizacion.obtenerEquipoPorid(event.getEquipoMedicoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No se encontro un equipo con esta id"));
-            cuartoHospitalizacion.equipoMedicos.remove(equipoMedico);
-        });
 
-        //Actualizar instruciones del equipo
-        apply((InstrucionesEquipoActualizada event) -> {
-            var equipo = cuartoHospitalizacion.obtenerEquipoPorid(event.getEquipoMedicoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No existe el equipo con esa id"));
-            equipo.actualizarInstrucioneterinario(event.getInstrucion());
-        });
-
-        //Actualizar tipo del equipo
-        apply((TipoDeEquipoActualizado event) -> {
-            var equipo = cuartoHospitalizacion.obtenerEquipoPorid(event.getEquipoMedicoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No existe el equipo con esa id"));
-            equipo.actualizarTipoDeEquipo(event.getTipoDeEquipo());
-        });
 
         //Agregar medicamento
         apply((MedicametoAgregado event) -> {
@@ -71,26 +52,6 @@ public class CuartoHospitalizacionChange extends EventChange {
             );
         });
 
-        //eliminado equipo medico
-        apply((MedicamentoEliminado event) -> {
-            var medicamento = cuartoHospitalizacion.obtenerMediamentoPorid(event.getMedicamentoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No se encontro un medicamento con esta id"));
-            cuartoHospitalizacion.equipoMedicos.remove(medicamento);
-        });
-
-        //Actualizar Nombre medicamento
-        apply((NombreMedicamentoActualizado event) -> {
-            var medicamento = cuartoHospitalizacion.obtenerMediamentoPorid(event.getMedicamentoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No existe medicamento con esta id"));
-            medicamento.actualizarNombreMedicamento(event.getNombreMedicamento());
-        });
-
-        //Actualizar Registro invima
-        apply((RegistroInvimaActualizado event) -> {
-            var registro = cuartoHospitalizacion.obtenerMediamentoPorid(event.getMedicamentoID())
-                    .orElseThrow(() -> new IllegalArgumentException("No existe el equipo con esa id"));
-            registro.actualizarRegistroInvima(event.getRegistroInvima());
-        });
 
         //Estadia de la mascota Finalizada
         apply((EstadiaMascotaFinalizada event)->{

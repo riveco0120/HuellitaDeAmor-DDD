@@ -19,7 +19,6 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
     protected Set<AuxiliarVeterinario> auxiliarVeterinarios;
 
 
-
     public PersonalMedico(PersonalMedicoID entityId, HorrarioPersonaMedico horrario) {
         super(entityId);
         Objects.requireNonNull(horrario);
@@ -62,29 +61,13 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
 
     }
 
-    //Actualizar nombre Veterinario
-    public void actualizarNombreVeterinario(Nombre nombre){
-        Objects.requireNonNull(nombre);
-        appendChange(new NombreVeterinarioActualizado(nombre));
-    }
-
-    //Actualizar Especialidad veterinario
+        //Actualizar Especialidad veterinario
     public void actualizarEspecialidadVeterinario(Especialidad especialidad){
         Objects.requireNonNull(especialidad);
         appendChange(new EspecialidadVeterinarioActualizada(especialidad));
     }
 
-    //Actualizar funcion de auxiliar veterinario
-    public void actualizarFuncionUnAuxiliar(AuxiliarVeterinarioID entityId,Funcion funcion){
-        appendChange(new FuncioDeAuxiliarAlctualizado(entityId,funcion)).apply();
-    }
-
-    //Actualizar funcion de auxiliar veterinario
-    public void actualizarNombreUnAuxiliar(AuxiliarVeterinarioID entityId,Nombre nombre){
-        appendChange(new NombreDeAuxiliarAlctualizado(entityId,nombre)).apply();
-    }
-
-    //Eliminar Auxiliar
+       //Eliminar Auxiliar
     public void eliminarAuxiliarVeterinario(AuxiliarVeterinarioID entityId){
         Objects.requireNonNull(entityId);
         appendChange(new AuxiliarVEterinarioEliminado(entityId)).apply();
@@ -93,14 +76,6 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
     //Encontrar el auxiliar por id
   protected Optional<AuxiliarVeterinario> obtenerAuxiliar(AuxiliarVeterinarioID auxiliarVeterinarioID){
         return auxiliarVeterinarios().stream().filter(auxiliar->auxiliar.identity().equals(auxiliarVeterinarioID)).findFirst();
-    }
-
-    public HorrarioPersonaMedico horrario() {
-        return horrario;
-    }
-
-    public Veterinario veterinario() {
-        return veterinario;
     }
 
     public Set<AuxiliarVeterinario> auxiliarVeterinarios() {

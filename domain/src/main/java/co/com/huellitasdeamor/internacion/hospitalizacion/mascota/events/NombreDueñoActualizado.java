@@ -8,7 +8,7 @@ public class NombreDueñoActualizado extends DomainEvent {
     private final Nombre nombreDueño;
 
     public NombreDueñoActualizado(Nombre nombreDueño) {
-        super("");
+        super("co.com.huellitasdeamor.internacion.hospitalizacion.nombredueñoactualo");
         this.nombreDueño = nombreDueño;
     }
 

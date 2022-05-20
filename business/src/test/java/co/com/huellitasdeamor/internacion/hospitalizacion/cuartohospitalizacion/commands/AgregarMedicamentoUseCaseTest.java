@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.CuartoHospitalizacionCreado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.MedicametoAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
@@ -37,7 +38,7 @@ class AgregarMedicamentoUseCaseTest {
         //Arrange
         CuartoHospitalizacionID cuartoHospitalizacionID = CuartoHospitalizacionID.of("xxx");
         MedicamentoID medicamentoID = MedicamentoID.of("1235");
-        NombreMedicamento nombreMedicamento = new NombreMedicamento("Aspirina");
+        Nombre nombreMedicamento = new Nombre("Aspirina");
         RegistroInvima registroInvima = new RegistroInvima("HTT12");
         var command = new AgregarMedicamento(cuartoHospitalizacionID,medicamentoID,nombreMedicamento,registroInvima);
         when(repository.getEventsBy("1235")).thenReturn(history());

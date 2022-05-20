@@ -1,22 +1,23 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
 import co.com.sofka.domain.generic.Entity;
 
 import java.util.Objects;
 
 public class Medicamento extends Entity<MedicamentoID> {
-    protected NombreMedicamento nombreMedicamento;
+    protected Nombre nombreMedicamento;
     protected RegistroInvima registroInvima;
 
-    public Medicamento(MedicamentoID entityId, NombreMedicamento nombreMedicamento, RegistroInvima registroInvima) {
+    public Medicamento(MedicamentoID entityId, Nombre nombreMedicamento, RegistroInvima registroInvima) {
         super(entityId);
         this.nombreMedicamento = nombreMedicamento;
         this.registroInvima = registroInvima;
     }
    //Comportamiento para actualizar Nombre del medicamento
 
-    public void actualizarNombreMedicamento(NombreMedicamento nombreMedicamento){
+    public void actualizarNombreMedicamento(Nombre nombreMedicamento){
         this.nombreMedicamento= Objects.requireNonNull(nombreMedicamento);
     }
 
@@ -25,7 +26,7 @@ public class Medicamento extends Entity<MedicamentoID> {
         this.registroInvima = Objects.requireNonNull(registroInvima);
     }
 
-    public NombreMedicamento getNombreMedicamento() {
+    public Nombre getNombreMedicamento() {
         return nombreMedicamento;
     }
 

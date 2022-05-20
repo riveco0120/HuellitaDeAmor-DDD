@@ -1,6 +1,7 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion;
 
 import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
 import co.com.huellitasdeamor.internacion.generico.ValoracionMascota;
@@ -49,7 +50,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
     }
 
     //Agregar medicamento
-    public void agregarMedicamento(MedicamentoID medicamentoID, NombreMedicamento nombreMedicamento, RegistroInvima registroInvima){
+    public void agregarMedicamento(MedicamentoID medicamentoID, Nombre nombreMedicamento, RegistroInvima registroInvima){
         Objects.requireNonNull(medicamentoID);
         Objects.requireNonNull(nombreMedicamento);
         Objects.requireNonNull(registroInvima);
@@ -80,7 +81,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
     }
 
     //Actualizar NombreMedicamento
-    public void actualizarNombreMedicamento(MedicamentoID medicamentoID, NombreMedicamento nombreMedicamento){
+    public void actualizarNombreMedicamento(MedicamentoID medicamentoID, Nombre nombreMedicamento){
         Objects.requireNonNull(medicamentoID);
         Objects.requireNonNull(nombreMedicamento);
         appendChange(new NombreMedicamentoActualizado(medicamentoID,nombreMedicamento)).apply();

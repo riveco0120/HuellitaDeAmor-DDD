@@ -24,6 +24,7 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
         super(entityId);
         Objects.requireNonNull(horrario);
         appendChange(new PersonalMedicoCreado(horrario)).apply();
+        subscribe(new PersonalMedicoChange(this));
     }
 
     //Actualizar Horrario del personal medico

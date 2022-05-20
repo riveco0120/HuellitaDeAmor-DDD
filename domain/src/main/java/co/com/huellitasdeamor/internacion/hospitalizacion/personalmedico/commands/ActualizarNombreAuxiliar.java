@@ -1,19 +1,20 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.AuxiliarVeterinarioID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Funcion;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
 import co.com.sofka.domain.generic.Command;
 
-public class ActualizarFuncionUnAuxiliar extends Command {
+public class ActualizarNombreAuxiliar extends Command {
     private final PersonalMedicoID personalMedicoID;
     private final AuxiliarVeterinarioID entityId;
-    private final Funcion funcion;
+    private final Nombre nombre;
 
-    public ActualizarFuncionUnAuxiliar(PersonalMedicoID personalMedicoID, AuxiliarVeterinarioID entityId, Funcion funcion) {
+
+    public ActualizarNombreAuxiliar(PersonalMedicoID personalMedicoID, AuxiliarVeterinarioID entityId, Nombre nombre) {
         this.personalMedicoID = personalMedicoID;
         this.entityId = entityId;
-        this.funcion = funcion;
+        this.nombre = nombre;
     }
 
     public PersonalMedicoID getPersonalMedicoID() {
@@ -24,7 +25,7 @@ public class ActualizarFuncionUnAuxiliar extends Command {
         return entityId;
     }
 
-    public Funcion getFuncion() {
-        return funcion;
+    public Nombre getNombre() {
+        return nombre;
     }
 }

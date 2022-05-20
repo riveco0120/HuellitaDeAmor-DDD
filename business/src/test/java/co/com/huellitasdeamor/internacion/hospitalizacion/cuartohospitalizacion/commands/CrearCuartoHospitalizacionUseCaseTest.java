@@ -5,6 +5,8 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.CuartoHospitalizacionID;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.NivelDeRiesgo;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.NombreMedicamento;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import org.junit.jupiter.api.Assertions;
@@ -28,8 +30,10 @@ class CrearCuartoHospitalizacionUseCaseTest {
     void crearCuartoDeHospitalizacionTest() {
         //Arrange
         CuartoHospitalizacionID cuartoHospitalizacionID = CuartoHospitalizacionID.of("xxx");
+        MascotaID mascotaID =MascotaID.of("2525");
+        PersonalMedicoID personalMedicoID = PersonalMedicoID.of("1235");
         NivelDeRiesgo nivelDeRiesgo = new NivelDeRiesgo("Bajo");
-        var command = new CrearCuartoHospitalizacion(cuartoHospitalizacionID, nivelDeRiesgo);
+        var command = new CrearCuartoHospitalizacion(cuartoHospitalizacionID,mascotaID,personalMedicoID,nivelDeRiesgo);
 
         //Act
         var events = UseCaseHandler.getInstance()
@@ -40,6 +44,7 @@ class CrearCuartoHospitalizacionUseCaseTest {
         //Asserts
         var event =(CuartoHospitalizacionCreado)events.get(0);
         Assertions.assertEquals("xxx",event.aggregateRootId());
+        Assertions.assertEquals("2525",event.getMascotaID().value());
         Assertions.assertEquals("Bajo",event.getNivelDeRiesgo().value());
     }
 

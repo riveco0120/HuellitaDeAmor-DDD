@@ -1,7 +1,7 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.PersonalMedico;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands.CrearPersonalMedico;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.CrearPersonalMedico;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;

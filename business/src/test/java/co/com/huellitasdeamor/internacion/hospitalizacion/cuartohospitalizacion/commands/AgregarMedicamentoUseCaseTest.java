@@ -3,6 +3,8 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.CuartoHospitalizacionCreado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.MedicametoAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -18,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -59,9 +60,14 @@ class AgregarMedicamentoUseCaseTest {
 
     private List<DomainEvent> history() {
         NivelDeRiesgo nivelDeRiesgo = new NivelDeRiesgo("bajo");
-        var event = new CuartoHospitalizacionCreado(nivelDeRiesgo);
+        MascotaID mascotaID = MascotaID.of("2525");
+        PersonalMedicoID personalMedicoID = PersonalMedicoID.of("1235");
+        var event = new CuartoHospitalizacionCreado(nivelDeRiesgo,mascotaID,personalMedicoID);
         event.setAggregateRootId("xxx");
         return List.of(event);
     }
 
+    static class FinalizarEstadiaMascotaUseCaseTest {
+
+    }
 }

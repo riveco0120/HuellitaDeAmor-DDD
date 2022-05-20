@@ -65,7 +65,7 @@ public class PersonalMedicoChange extends EventChange {
         });
 
         //Cambiar nombre veterinario
-        apply((HorrarioCambiado event) -> {
+        apply((HorrarioActualizado event) -> {
             personalMedico.horrario = event.getHorrario();
 
         });

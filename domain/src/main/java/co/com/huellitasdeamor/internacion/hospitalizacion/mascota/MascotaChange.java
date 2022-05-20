@@ -1,7 +1,7 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.*;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreMascota;
+import co.com.huellitasdeamor.internacion.generico.ValoracionMascota;
 import co.com.sofka.domain.generic.EventChange;
 
 public class MascotaChange extends EventChange {
@@ -10,6 +10,7 @@ public class MascotaChange extends EventChange {
         apply((MascotaCreada event)->{
             mascota.nombreMascota=event.getNombreMascota();
             mascota.especie=event.getEspecie();
+            mascota.valaoracion=  new ValoracionMascota(0D);
         });
         //Para Agregar Dueño
         apply((DueñoMascotaAgregado event)->{
@@ -56,6 +57,11 @@ public class MascotaChange extends EventChange {
         apply((DescripcionOrdenActualizada event)->{
             var descripcion = mascota.ordenMedica;
             descripcion.actualiarDescripcion(event.getDescripcionOrden());
+        });
+
+        //Actualizar Valoracion
+        apply((ValoracionActualizadad event)->{
+            mascota.valaoracion=event.getValoracion();
         });
     }
 }

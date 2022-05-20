@@ -1,6 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
+import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -13,14 +13,23 @@ import java.util.Set;
 
 public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
 
-    protected Horrario horrario;
+    protected HorrarioPersonaMedico horrario;
     protected Veterinario veterinario;
     protected Set<AuxiliarVeterinario> auxiliarVeterinarios;
 
-    public PersonalMedico(PersonalMedicoID entityId, Horrario horrario) {
+
+
+    public PersonalMedico(PersonalMedicoID entityId, HorrarioPersonaMedico horrario) {
         super(entityId);
         Objects.requireNonNull(horrario);
         appendChange(new PersonalMedicoCreado(horrario)).apply();
+    }
+
+    //Actualizar Horrario del personal medico
+    public void actualizarHorrario(HorrarioPersonaMedico horrario){
+        Objects.requireNonNull(horrario);
+        appendChange(new HorrarioActualizado(horrario)).apply();
+
     }
 
     //Lanzar o afectar los estados
@@ -51,12 +60,7 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
         appendChange(new VeterinarioAgregado(entityId,nombre,especialidad));
     }
 
-    //Cambiar Horrario del personal medico
-    public void cambiarHorrario(Horrario horrario){
-        Objects.requireNonNull(horrario);
-        appendChange(new HorrarioCambiado(horrario)).apply();
 
-    }
 
     //Actualizar nombre Veterinario
     public void actualizarNombreVeterinario(Nombre nombre){
@@ -94,7 +98,7 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
     }
 
 
-    public Horrario horrario() {
+    public HorrarioPersonaMedico horrario() {
         return horrario;
     }
 

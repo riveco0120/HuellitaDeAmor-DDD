@@ -1,8 +1,10 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion;
 
+import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.*;
-import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.RegistroInvima;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
+import co.com.huellitasdeamor.internacion.generico.ValoracionMascota;
+import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.EstadoMascota;
+import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.EstadoTurnoPersonal;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashSet;
@@ -12,9 +14,14 @@ public class CuartoHospitalizacionChange extends EventChange {
         //Para crear CuartoHospitalizacion
         apply((CuartoHospitalizacionCreado event) -> {
             cuartoHospitalizacion.nivelDeRiesgo = event.getNivelDeRiesgo();
-            cuartoHospitalizacion.mascotasIds = new HashSet<>();
             cuartoHospitalizacion.medicamentos = new HashSet<>();
             cuartoHospitalizacion.equipoMedicos = new HashSet<>();
+            cuartoHospitalizacion.estadoMascota = new EstadoMascota(EstadoMascota.Estados.POR_INICIAR);
+            cuartoHospitalizacion.valoracionMascota = new ValoracionMascota(0D);
+            cuartoHospitalizacion.estadoTurnoPersonal= new EstadoTurnoPersonal(EstadoTurnoPersonal.Estados.POR_INICIAR);
+            cuartoHospitalizacion.horrarioPersonaMedico = new HorrarioPersonaMedico("en casa");
+            cuartoHospitalizacion.mascotaid = event.getMascotaID();
+            cuartoHospitalizacion.personalMedicoID=event.getPersonalMedicoID();
         });
 
         //Agregando equipo medico
@@ -85,34 +92,18 @@ public class CuartoHospitalizacionChange extends EventChange {
             registro.actualizarRegistroInvima(event.getRegistroInvima());
         });
 
-/*
-        //Agregar personal medico
-        apply((PersonaMedicoAgregado event)->{
-            cuartoHospitalizacion.personalMedicoID= new PersonalMedicoID(
-                    event.getPersonalMedicoID();
-            )
-        });
-    }
-    */
-        /*
-        //Mascot Agregada
-        apply((MascotaAgregada evnet)->{
-            var numMascota = cuartoHospitalizacion.mascotasIds().size();
-            if(numMascota==5){
-                throw new IllegalArgumentException("No se puede tener mas de 5 mascotas por cuarto");
-            }
-            cuartoHospitalizacion.medicamentos.add(
-                    evnet.getMascotaID();
-            );
+        //Estadia de la mascota Finalizada
+        apply((EstadiaMascotaFinalizada event)->{
+            cuartoHospitalizacion.valoracionMascota = event.getValoracionMascota();
+            cuartoHospitalizacion.estadoMascota= new EstadoMascota(EstadoMascota.Estados.ALTA);
         });
 
-*/
+        //Finalizar turno personal medico
+        apply((TurnoPersonalMedicoFinalizado event)->{
+            cuartoHospitalizacion.horrarioPersonaMedico=event.getHorrarioPersonalMedico();
+            cuartoHospitalizacion.estadoTurnoPersonal = new EstadoTurnoPersonal(EstadoTurnoPersonal.Estados.FINALIZO);
 
-        /*
-    //Eliminar mascota
-        apply((MascotaEliminada event)->{
-            var mascota =
         });
-    }*/
+
     }
 }

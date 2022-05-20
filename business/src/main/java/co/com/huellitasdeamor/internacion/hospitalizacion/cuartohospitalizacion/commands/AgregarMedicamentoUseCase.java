@@ -14,4 +14,7 @@ public class AgregarMedicamentoUseCase extends UseCase<RequestCommand<AgregarMed
         cuarto.agregarMedicamento(command.getMedicamentoID(),command.getNombreMedicamento(),command.getRegistroInvima());
         emit().onResponse(new ResponseEvents(cuarto.getUncommittedChanges()));
     }
+
+    public static class FinalizarTurnoPersonalMedico {
+    }
 }

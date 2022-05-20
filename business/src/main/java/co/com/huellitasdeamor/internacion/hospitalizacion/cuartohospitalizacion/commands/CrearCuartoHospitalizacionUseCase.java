@@ -10,7 +10,7 @@ public class CrearCuartoHospitalizacionUseCase extends UseCase<RequestCommand<Cr
     @Override
     public void executeUseCase(RequestCommand<CrearCuartoHospitalizacion> crearCuartoHospitalizacionRequestCommand) {
         var command = crearCuartoHospitalizacionRequestCommand.getCommand();
-        var cuartoHospitalizacion = new CuartoHospitalizacion(command.getCuartoHospitalizacionID(),command.getNivelDeRiesgo());
+        var cuartoHospitalizacion = new CuartoHospitalizacion(command.getCuartoHospitalizacionID(), command.getMascotaID(), command.getPersonalMedicoID(),command.getNivelDeRiesgo());
         emit().onResponse(new ResponseEvents(cuartoHospitalizacion.getUncommittedChanges()));
     }
 }

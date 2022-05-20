@@ -67,7 +67,4 @@ class AgregarMedicamentoUseCaseTest {
         return List.of(event);
     }
 
-    static class FinalizarEstadiaMascotaUseCaseTest {
-
-    }
 }

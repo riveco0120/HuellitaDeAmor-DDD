@@ -49,14 +49,6 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
         return cuartoHospitalizacion;
     }
 
-
-    //Agregar Mascota
-    public void agregarMascota(MascotaID mascotaID){
-        Objects.requireNonNull(mascotaID);
-        appendChange(new MascotaAgregada(mascotaID)).apply();
-    }
-
-
     //Agregar medicamento
     public void agregarMedicamento(MedicamentoID medicamentoID, NombreMedicamento nombreMedicamento, RegistroInvima registroInvima){
         Objects.requireNonNull(medicamentoID);
@@ -74,17 +66,6 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
         Objects.requireNonNull(instrucion);
         appendChange(new EquipoMedicoAgregado(equipoMedicoID,tipoDeEquipo,instrucion)).apply();
 
-    }
-    //Agregar Personal medico
-    public void agregarPersonalMedico(PersonalMedicoID personalMedicoID){
-        Objects.requireNonNull(personalMedicoID);
-        appendChange(new PersonaMedicoAgregado(personalMedicoID)).apply();
-    }
-
-    //Eliminar Mascota
-    public void eliminarMascota(MascotaID mascotaID){
-        Objects.requireNonNull(mascotaID);
-        appendChange(new MascotaEliminada(mascotaID)).apply();
     }
 
     //Eliminar medicamento

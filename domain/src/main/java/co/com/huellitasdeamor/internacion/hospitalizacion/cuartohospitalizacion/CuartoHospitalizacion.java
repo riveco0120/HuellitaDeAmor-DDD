@@ -2,12 +2,12 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.Mascota;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.PersonalMedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -24,6 +24,19 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
         super(entityId);
         Objects.requireNonNull(nivelDeRiesgo);
         appendChange(new CuartoHospitalizacionCreado(nivelDeRiesgo)).apply();
+    }
+
+    //Lanzar o afectar los estados
+    private CuartoHospitalizacion(CuartoHospitalizacionID cuartoHospitalizacionID){
+        super(cuartoHospitalizacionID);
+        subscribe(new CuartoHospitalizacionChange(this));
+    }
+
+    //factoria
+    public static CuartoHospitalizacion from(CuartoHospitalizacionID cuartoHospitalizacionID, List<DomainEvent> events){
+        var cuartoHospitalizacion = new CuartoHospitalizacion(cuartoHospitalizacionID);
+        events.forEach(cuartoHospitalizacion::applyEvent);
+        return cuartoHospitalizacion;
     }
 
 
@@ -94,15 +107,31 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
     public void actualizarIntrucionesEquipoMedico(EquipoMedicoID equipoMedicoID,Instrucion instrucion){
         Objects.requireNonNull(equipoMedicoID);
         Objects.requireNonNull(instrucion);
-        appendChange(new InstrucionesEquipoActualizadas(equipoMedicoID,instrucion)).apply();
+        appendChange(new InstrucionesEquipoActualizada(equipoMedicoID,instrucion)).apply();
     }
 
     //Actualizando Tipo de equipo medico
     public void actualizarTipoEquipoMedico(EquipoMedicoID equipoMedicoID,TipoDeEquipo tipoDeEquipo){
         Objects.requireNonNull(equipoMedicoID);
         Objects.requireNonNull(tipoDeEquipo);
-        appendChange(new TipoDEEquipoActualizadas(equipoMedicoID,tipoDeEquipo)).apply();
+        appendChange(new TipoDeEquipoActualizado(equipoMedicoID,tipoDeEquipo)).apply();
     }
+
+    //Obtener por id quipo medico
+    protected Optional<EquipoMedico> obtenerEquipoPorid(EquipoMedicoID equipoMedicoID){
+        return equipoMedicos().stream().filter(equipo->equipo.identity().equals(equipoMedicoID)).findFirst();
+    }
+    //Obtener por id medicamento
+    protected Optional<Medicamento> obtenerMediamentoPorid(MedicamentoID medicamentoID){
+        return meedicamentos().stream().filter(medicamento->medicamento.identity().equals(medicamentoID)).findFirst();
+    }
+
+    /*
+    //obtener mascota por id
+    protected Optional<Mascota> obtenerMascotaPorId(MascotaID mascotaID){
+        return meedicamentos().stream().filter(mascota->mascota.identity().equals(mascotaID)).findFirst();
+    }
+    */
 
     public NivelDeRiesgo nivelDeRiesgo() {
         return nivelDeRiesgo;
@@ -120,7 +149,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
         return medicamentos;
     }
 
-    public Set<EquipoMedico> quipoMedicos() {
+    public Set<EquipoMedico> equipoMedicos() {
         return equipoMedicos;
     }
 }

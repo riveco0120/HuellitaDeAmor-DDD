@@ -4,11 +4,11 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.TipoDeEquipo;
 import co.com.sofka.domain.generic.DomainEvent;
 
-public class TipoDEEquipoActualizadas extends DomainEvent {
+public class TipoDeEquipoActualizado extends DomainEvent {
     private final EquipoMedicoID equipoMedicoID;
     private final TipoDeEquipo tipoDeEquipo;
 
-    public TipoDEEquipoActualizadas(EquipoMedicoID equipoMedicoID, TipoDeEquipo tipoDeEquipo) {
+    public TipoDeEquipoActualizado(EquipoMedicoID equipoMedicoID, TipoDeEquipo tipoDeEquipo) {
         super("huellitadeamor.cuartohospitalizacion.tipodeequipoactualizadas");
         this.equipoMedicoID = equipoMedicoID;
         this.tipoDeEquipo = tipoDeEquipo;

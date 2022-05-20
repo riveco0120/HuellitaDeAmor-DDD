@@ -22,4 +22,17 @@ public class FechaOrdenMedica implements ValueObject<String> {
         return formato.format(fecha);
 
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FechaOrdenMedica fechaOrdenMedica = (FechaOrdenMedica) o;
+        return Objects.equals(fecha, fechaOrdenMedica.fecha);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fecha);
+    }
 }

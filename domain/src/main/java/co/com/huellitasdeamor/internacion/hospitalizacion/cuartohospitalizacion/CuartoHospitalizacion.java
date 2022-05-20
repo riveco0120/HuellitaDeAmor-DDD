@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion;
 
+import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.Mascota;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
@@ -79,7 +80,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
     public void actualizarNombreMedicamento(MedicamentoID medicamentoID, NombreMedicamento nombreMedicamento){
         Objects.requireNonNull(medicamentoID);
         Objects.requireNonNull(nombreMedicamento);
-        appendChange(new NombreMedicamentoActualizado()).apply();
+        appendChange(new NombreMedicamentoActualizado(medicamentoID,nombreMedicamento)).apply();
     }
 
     //Actualizar Registro invima medicamento

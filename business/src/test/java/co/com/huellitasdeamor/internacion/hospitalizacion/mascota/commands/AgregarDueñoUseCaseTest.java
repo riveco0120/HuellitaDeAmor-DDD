@@ -1,5 +1,6 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
+package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.AgregarDueño;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands.AgregarDueñoUseCase;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DueñoMascotaAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;

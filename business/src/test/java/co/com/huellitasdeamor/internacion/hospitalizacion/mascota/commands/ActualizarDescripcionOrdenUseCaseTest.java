@@ -1,9 +1,10 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
+package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands.ActualizarNombreDueñoUseCase;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DueñoMascotaAgregado;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.ActualizarDescripcionOrden;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands.ActualizarDescripcionOrdenUseCase;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DescripcionOrdenActualizada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.NombreDueñoActualizado;
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.OrdenMedicaAgregada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -18,24 +19,25 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class ActualizarNombreDueñoUseCaseTest {
+class ActualizarDescripcionOrdenUseCaseTest {
 
     @InjectMocks
-    private ActualizarNombreDueñoUseCase useCase;
+    private ActualizarDescripcionOrdenUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    @DisplayName("Test para probar actualizar nombre")
-    void actualizarNombreDueñoTest(){
+    @DisplayName("Test para probar actualizar descripcion orden")
+    void actualizarDescripcionOrdenTest(){
         //Arrange
         MascotaID mascotaID = MascotaID.of("xxxx");
-        NombreDueño nombreDueño =new NombreDueño("Maximiliano");
-        var command = new ActualizarNombreDueño(mascotaID,nombreDueño);
+        DescripcionOrden descripcionOrden = new DescripcionOrden("Acidente de transito");
+        var command = new ActualizarDescripcionOrden(mascotaID,descripcionOrden);
         Mockito.when(repository.getEventsBy("xxxx")).thenReturn(history());
         useCase.addRepository(repository);
 
@@ -47,21 +49,18 @@ class ActualizarNombreDueñoUseCaseTest {
                 .getDomainEvents();
 
         //Assert
-        var event =(NombreDueñoActualizado)events.get(0);
-        Assertions.assertEquals("Maximiliano",event.getNombreDueño().value());
+        var event = (DescripcionOrdenActualizada)events.get(0);
+        Assertions.assertEquals("Acidente de transito",event.getDescripcionOrden().value());
         Mockito.verify(repository).getEventsBy(mascotaID.value());
-
     }
 
-    private List<DomainEvent>history(){
+    private List<DomainEvent> history(){
         NombreMascota nombreMascota = new NombreMascota("Susi");
         Especie especie = new Especie("Gato domestico");
         var event = new MascotaCreada(nombreMascota,especie);
         event.setAggregateRootId("xxxx");
-        var eventDueño = new DueñoMascotaAgregado(DueñoID.of("dddd"),new NombreDueño("Sindy"),new Direccion("Alto prado"),new Telefono("3002451578"));
-        return List.of(event,eventDueño);
+        var eventOrden = new OrdenMedicaAgregada(OrdenMedicaID.of("20202"),new FechaOrdenMedica(LocalDateTime.now()),new ResultadoExamene("No expesifica"),new DescripcionOrden("Paciente en mal estado por"));
+        return List.of(event,eventOrden);
     }
-
-
 
 }

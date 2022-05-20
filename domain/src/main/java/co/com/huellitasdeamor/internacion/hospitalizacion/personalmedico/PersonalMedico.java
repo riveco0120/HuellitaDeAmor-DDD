@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
+import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.*;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -57,12 +58,16 @@ public class PersonalMedico extends AggregateEvent<PersonalMedicoID> {
 
     }
 
-    //Actualizar Veterinario
-    public void actualizarVeterinario(VeterinarioID entityId, Nombre nombre, Especialidad especialidad){
-        Objects.requireNonNull(entityId);
+    //Actualizar nombre Veterinario
+    public void actualizarNombreVeterinario(Nombre nombre){
         Objects.requireNonNull(nombre);
+        appendChange(new NombreVeterinarioActualizado(nombre));
+    }
+
+    //Actualizar Especialidad veterinario
+    public void actualizarEspecialidadVeterinario(Especialidad especialidad){
         Objects.requireNonNull(especialidad);
-        appendChange(new VeterinarioActualizado(entityId,nombre,especialidad));
+        appendChange(new EspecialidadVeterinarioActualizada(especialidad));
     }
 
     //Actualizar funcion de auxiliar veterinario

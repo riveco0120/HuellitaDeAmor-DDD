@@ -52,10 +52,16 @@ public class PersonalMedicoChange extends EventChange {
             );
         });
 
-        apply((VeterinarioActualizado event) -> {
+        //Actualizar nombre veterinario
+        apply((NombreVeterinarioActualizado event) -> {
+            var veterinary = personalMedico.veterinario;
+            veterinary.actualizarNombreVeterinario(event.getNombre());
+        });
+
+        //Actualizar especialidad veterinario
+        apply((EspecialidadVeterinarioActualizada event) -> {
             var veterinary = personalMedico.veterinario;
             veterinary.actualizarEspecialidad(event.getEspecialidad());
-            veterinary.actualizarNombreVeterinario(event.getNombre());
         });
 
         //Cambiar nombre veterinario

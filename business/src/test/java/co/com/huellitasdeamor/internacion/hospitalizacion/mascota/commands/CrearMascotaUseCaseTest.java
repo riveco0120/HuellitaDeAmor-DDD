@@ -1,7 +1,5 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.CrearMascota;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands.CrearMascotaUseCase;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;

@@ -1,4 +1,4 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject;
+package co.com.huellitasdeamor.internacion.generico;
 
 import co.com.sofka.domain.generic.ValueObject;
 

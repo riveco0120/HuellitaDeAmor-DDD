@@ -1,7 +1,5 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.CrearPersonalMedico;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands.CrearPersonalMedicoUseCase;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.PersonalMedicoCreado;
 import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;

@@ -1,4 +1,4 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
+package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Especialidad;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;

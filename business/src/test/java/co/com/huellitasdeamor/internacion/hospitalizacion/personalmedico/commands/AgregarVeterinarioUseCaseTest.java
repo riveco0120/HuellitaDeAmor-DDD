@@ -2,8 +2,7 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.comman
 
 
 import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.AgregarVeterinario;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.commands.AgregarVeterinarioUseCase;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.PersonalMedicoCreado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events.VeterinarioAgregado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;

@@ -1,7 +1,5 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.ActualizarDescripcionOrden;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands.ActualizarDescripcionOrdenUseCase;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DescripcionOrdenActualizada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.OrdenMedicaAgregada;

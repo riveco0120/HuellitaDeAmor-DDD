@@ -2,7 +2,7 @@ package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.AuxiliarVeterinarioID;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Funcion;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Nombre;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class AuxiliarAgregado extends DomainEvent {

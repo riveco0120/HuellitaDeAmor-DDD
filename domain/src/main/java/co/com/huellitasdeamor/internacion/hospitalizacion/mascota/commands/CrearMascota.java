@@ -1,4 +1,4 @@
-package co.com.huellitasdeamor.internacion.hospitalizacion.mascota;
+package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;

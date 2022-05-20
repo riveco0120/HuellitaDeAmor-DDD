@@ -1,7 +1,7 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Especialidad;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.Nombre;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.VeterinarioID;
 import co.com.sofka.domain.generic.Entity;
 

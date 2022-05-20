@@ -1,15 +1,15 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreMascota;
 import co.com.sofka.domain.generic.Command;
 
 public class ActualizarNombreMascota extends Command {
     private final MascotaID mascotaID;
-    private final NombreMascota nombreMascota;
+    private final Nombre nombreMascota;
 
 
-    public ActualizarNombreMascota(MascotaID mascotaID, NombreMascota nombreMascota) {
+    public ActualizarNombreMascota(MascotaID mascotaID, Nombre nombreMascota) {
         this.mascotaID = mascotaID;
         this.nombreMascota = nombreMascota;
     }
@@ -18,7 +18,7 @@ public class ActualizarNombreMascota extends Command {
         return mascotaID;
     }
 
-    public NombreMascota getNombreMascota() {
+    public Nombre getNombreMascota() {
         return nombreMascota;
     }
 }

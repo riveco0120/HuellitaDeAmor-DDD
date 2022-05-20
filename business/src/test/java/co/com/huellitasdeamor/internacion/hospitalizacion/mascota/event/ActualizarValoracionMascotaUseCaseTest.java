@@ -1,14 +1,12 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.event;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.generico.ValoracionMascota;
-import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.CuartoHospitalizacionCreado;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.EstadiaMascotaFinalizada;
-import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.NivelDeRiesgo;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.ValoracionActualizadad;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreMascota;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
@@ -23,7 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -52,7 +49,7 @@ class ActualizarValoracionMascotaUseCaseTest {
     }
 
     private List<DomainEvent> history() {
-        NombreMascota nombreMascota =new NombreMascota("Ambar");
+        Nombre nombreMascota =new Nombre("Ambar");
         Especie especie = new Especie("Gato domestico");
         var event = new MascotaCreada(nombreMascota,especie);
         return List.of(event);

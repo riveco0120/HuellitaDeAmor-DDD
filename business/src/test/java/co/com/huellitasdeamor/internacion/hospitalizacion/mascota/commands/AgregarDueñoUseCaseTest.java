@@ -61,7 +61,7 @@ class AgregarDueñoUseCaseTest {
     }
 
     private List<DomainEvent> history() {
-        NombreMascota nombreMascota = new NombreMascota("Susi");
+        Nombre nombreMascota = new Nombre("Susi");
         Especie especie = new Especie("Gato domestico");
         var event = new MascotaCreada(nombreMascota,especie);
         event.setAggregateRootId("xxxx");

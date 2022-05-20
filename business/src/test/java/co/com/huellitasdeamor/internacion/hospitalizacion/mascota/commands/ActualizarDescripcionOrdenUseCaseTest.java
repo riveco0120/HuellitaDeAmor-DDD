@@ -1,5 +1,6 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.DescripcionOrdenActualizada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.OrdenMedicaAgregada;
@@ -53,7 +54,7 @@ class ActualizarDescripcionOrdenUseCaseTest {
     }
 
     private List<DomainEvent> history(){
-        NombreMascota nombreMascota = new NombreMascota("Susi");
+        Nombre nombreMascota = new Nombre("Susi");
         Especie especie = new Especie("Gato domestico");
         var event = new MascotaCreada(nombreMascota,especie);
         event.setAggregateRootId("xxxx");

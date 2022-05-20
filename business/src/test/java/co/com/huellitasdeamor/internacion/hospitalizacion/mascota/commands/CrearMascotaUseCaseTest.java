@@ -1,9 +1,9 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.mascota.commands;
 
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.events.MascotaCreada;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.Especie;
 import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.MascotaID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.mascota.valueobject.NombreMascota;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +24,7 @@ class CrearMascotaUseCaseTest {
     void crearMascotaTest(){
         //Arrange
         MascotaID mascotaID= MascotaID.of("dddd");
-        NombreMascota nombreMascota = new NombreMascota("Tommy");
+        Nombre nombreMascota = new Nombre("Tommy");
         Especie especie= new Especie("Perro domestico");
         var command = new CrearMascota(mascotaID,nombreMascota,especie);
 

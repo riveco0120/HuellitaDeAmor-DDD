@@ -15,10 +15,10 @@ public class Mascota extends AggregateEvent<MascotaID> {
     protected OrdenMedica ordenMedica;
     protected Dueño dueño;
     protected Especie especie;
-    protected NombreMascota nombreMascota;
+    protected Nombre nombreMascota;
     protected ValoracionMascota valaoracion;
 
-    public Mascota(MascotaID entityId,NombreMascota nombreMascota,Especie especie) {
+    public Mascota(MascotaID entityId,Nombre nombreMascota,Especie especie) {
         super(entityId);
         Objects.requireNonNull(nombreMascota);
         Objects.requireNonNull(especie);
@@ -62,7 +62,7 @@ public class Mascota extends AggregateEvent<MascotaID> {
     }
 
     //Actualizar nombre mascota
-     public void actualizarNombreMascota(NombreMascota nombreMascota){
+     public void actualizarNombreMascota(Nombre nombreMascota){
         Objects.requireNonNull(nombreMascota);
         appendChange(new NombreMascotaActualizado(nombreMascota)).apply();
      }
@@ -103,7 +103,7 @@ public class Mascota extends AggregateEvent<MascotaID> {
         return especie;
     }
 
-    public NombreMascota nombreMascota() {
+    public Nombre nombreMascota() {
         return nombreMascota;
     }
 }

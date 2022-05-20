@@ -35,4 +35,5 @@ public class NombreDueño implements ValueObject<String> {
     public int hashCode() {
         return Objects.hash(value);
     }
+
 }

@@ -49,7 +49,7 @@ class EliminarAuxiliarVeterinarioUseCaseTest {
 
         //Assert
         var event=(AuxiliarVEterinarioEliminado)events.get(0);
-        Assertions.assertEquals("huellitadeamor.persomalmedico.auxiliarveterinarioeliminado",event.type);
+        Assertions.assertEquals("co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.auxiliarveterinarioeliminado",event.type);
         Assertions.assertEquals("10101",event.getAuxiliarVeterinarioID().value());
 
     }

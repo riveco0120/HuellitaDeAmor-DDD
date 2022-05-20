@@ -15,6 +15,4 @@ public class AgregarMedicamentoUseCase extends UseCase<RequestCommand<AgregarMed
         emit().onResponse(new ResponseEvents(cuarto.getUncommittedChanges()));
     }
 
-    public static class FinalizarTurnoPersonalMedico {
-    }
 }

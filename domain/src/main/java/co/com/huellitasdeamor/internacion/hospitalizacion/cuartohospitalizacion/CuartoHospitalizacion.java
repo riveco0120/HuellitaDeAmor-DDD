@@ -13,7 +13,6 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 
 public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionID> {
@@ -68,16 +67,7 @@ public class CuartoHospitalizacion extends AggregateEvent<CuartoHospitalizacionI
 
     }
 
-       //Obtener por id quipo medico
-    protected Optional<EquipoMedico> obtenerEquipoPorid(EquipoMedicoID equipoMedicoID){
-        return equipoMedicos().stream().filter(equipo->equipo.identity().equals(equipoMedicoID)).findFirst();
-    }
-    //Obtener por id medicamento
-    protected Optional<Medicamento> obtenerMediamentoPorid(MedicamentoID medicamentoID){
-        return meedicamentos().stream().filter(medicamento->medicamento.identity().equals(medicamentoID)).findFirst();
-    }
-
-    public HorrarioPersonaMedico horrarioPersonaMedico() {
+         public HorrarioPersonaMedico horrarioPersonaMedico() {
         return horrarioPersonaMedico;
     }
 

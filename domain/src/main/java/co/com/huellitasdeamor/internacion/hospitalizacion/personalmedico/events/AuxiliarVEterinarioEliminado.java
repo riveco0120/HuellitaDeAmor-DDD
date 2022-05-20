@@ -7,7 +7,7 @@ public class AuxiliarVEterinarioEliminado extends DomainEvent {
     private final AuxiliarVeterinarioID auxiliarVeterinarioID;
 
     public AuxiliarVEterinarioEliminado(AuxiliarVeterinarioID auxiliarVeterinarioID) {
-        super("huellitadeamor.persomalmedico.auxiliarveterinarioeliminado");
+        super("co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.auxiliarveterinarioeliminado");
         this.auxiliarVeterinarioID = auxiliarVeterinarioID;
     }
 

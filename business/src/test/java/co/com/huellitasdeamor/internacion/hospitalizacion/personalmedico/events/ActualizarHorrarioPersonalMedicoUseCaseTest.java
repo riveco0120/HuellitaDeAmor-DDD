@@ -1,8 +1,9 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.events;
 
 import co.com.huellitasdeamor.internacion.generico.HorrarioPersonaMedico;
+import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.events.TurnoPersonalMedicoFinalizado;
-import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.PersonalMedicoID;
+import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueobject.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
@@ -17,7 +18,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,8 +47,15 @@ class ActualizarHorrarioPersonalMedicoUseCaseTest {
     }
     private List<DomainEvent> history() {
         HorrarioPersonaMedico horrarioPersonaMedico = new HorrarioPersonaMedico("7pm a 6am");
+
         var event = new PersonalMedicoCreado(horrarioPersonaMedico);
-        return List.of(event);
+        event.setAggregateRootId("xxxx");
+        VeterinarioAgregado veterinario = new VeterinarioAgregado(VeterinarioID.of("1245"),new Nombre("Calos"),new Especialidad("comida rapida"));
+        AuxiliarAgregado auxiliarAgregado = new AuxiliarAgregado(AuxiliarVeterinarioID.of("1596"),new Nombre("Silvia"),new Funcion("Mantenimiento"));
+        AuxiliarVEterinarioEliminado auxiliarEliminado = new AuxiliarVEterinarioEliminado(AuxiliarVeterinarioID.of("1596"));
+        EspecialidadVeterinarioActualizada especialidaNueva = new EspecialidadVeterinarioActualizada(new Especialidad("Cirugias"));
+        return List.of(event,veterinario,auxiliarAgregado,auxiliarEliminado,especialidaNueva);
+
     }
 
 

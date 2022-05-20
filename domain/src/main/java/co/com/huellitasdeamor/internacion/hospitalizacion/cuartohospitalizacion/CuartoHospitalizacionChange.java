@@ -38,7 +38,6 @@ public class CuartoHospitalizacionChange extends EventChange {
         });
 
 
-
         //Agregar medicamento
         apply((MedicametoAgregado event) -> {
             var numMedicamento = cuartoHospitalizacion.meedicamentos().size();

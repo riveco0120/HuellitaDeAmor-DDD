@@ -61,7 +61,7 @@ class ActualizarEspecialidadVeterinarioUseCaseTest {
         HorrarioPersonaMedico horrarioPersonaMedico = new HorrarioPersonaMedico("6am a 7 pm");
         var event = new PersonalMedicoCreado(horrarioPersonaMedico);
         event.setAggregateRootId("xxxx");
-        var eventEspecialidad = new VeterinarioAgregado(VeterinarioID.of("1245"),new Nombre("Calos"),new Especialidad("comida rapida"));
+        VeterinarioAgregado eventEspecialidad = new VeterinarioAgregado(VeterinarioID.of("1245"),new Nombre("Calos"),new Especialidad("comida rapida"));
         return List.of(event,eventEspecialidad);
     }
 

@@ -5,8 +5,6 @@ import co.com.huellitasdeamor.internacion.hospitalizacion.personalmedico.valueob
 import co.com.huellitasdeamor.internacion.generico.Nombre;
 import co.com.sofka.domain.generic.Entity;
 
-import java.util.Objects;
-
 public class AuxiliarVeterinario extends Entity<AuxiliarVeterinarioID> {
 
     private  Nombre nombre;
@@ -22,7 +20,4 @@ public class AuxiliarVeterinario extends Entity<AuxiliarVeterinarioID> {
         return nombre;
     }
 
-    public Funcion funcion() {
-        return funcion;
-    }
 }

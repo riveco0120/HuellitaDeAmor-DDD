@@ -1,23 +1,23 @@
 package co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.commands;
 
 import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.CuartoHospitalizacionID;
-import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.NivelDeRiesgo;
+import co.com.huellitasdeamor.internacion.hospitalizacion.cuartohospitalizacion.valueobjects.MedicamentoID;
 import co.com.sofka.domain.generic.Command;
 
-public class CrearCuartoHospitalizacion extends Command {
+public class EliminarEquipoMedico extends Command {
     private final CuartoHospitalizacionID cuartoHospitalizacionID;
-    private final NivelDeRiesgo nivelDeRiesgo;
+    private final MedicamentoID medicamentoID;
 
-    public CrearCuartoHospitalizacion(CuartoHospitalizacionID cuartoHospitalizacionID, NivelDeRiesgo nivelDeRiesgo) {
+    public EliminarEquipoMedico(CuartoHospitalizacionID cuartoHospitalizacionID, MedicamentoID medicamentoID) {
         this.cuartoHospitalizacionID = cuartoHospitalizacionID;
-        this.nivelDeRiesgo = nivelDeRiesgo;
+        this.medicamentoID = medicamentoID;
     }
 
     public CuartoHospitalizacionID getCuartoHospitalizacionID() {
         return cuartoHospitalizacionID;
     }
 
-    public NivelDeRiesgo getNivelDeRiesgo() {
-        return nivelDeRiesgo;
+    public MedicamentoID getMedicamentoID() {
+        return medicamentoID;
     }
 }
